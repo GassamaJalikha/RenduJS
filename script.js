@@ -7,13 +7,34 @@ fetch(API_URL)
         // Tester les données//
         console.log(data.realisations);
         console.log(data.temoignages);
-        // ETAPE 3 : Créer le nom de l'entreprise (h1), slogan (h2) et les boutons
 
+        // ETAPE 3 : Créer le nom de l'entreprise (h1), slogan (h2) et les boutons
+        const logo = document.getElementById("logo");
+        logo.textContent = data.entreprise;
+
+        let titre = document.createElement("h2");
+        titre.textContent = data.entreprise;
+        let slogan = document.createElement("p");
+        slogan.textContent = data.propositionDeValeur;
+        let boutton = document.createElement("button");
+        boutton.textContent = data.texteBouton;
+
+        let accroche = document.getElementById("accroche");
+        accroche.appendChild(titre);
+        accroche.appendChild(slogan);
+        accroche.appendChild(boutton);
 
 
         // ETAPE 4 : Pour chaque élement du tableau "réalisation"créer une DIV 
-        
+        data.promessesClients.forEach(promess => {
+            let promesses = document.createElement("p");
+            promesses.textContent = promess
+            console.log(promesses);
+
+        });
+
         data.realisations.forEach(real => {
+            let card = document.createElement("div");
             // - Créer un titre (h3) pour afficher le nom
             let title = document.createElement("h3");
             title.textContent = real.titre
@@ -30,17 +51,19 @@ fetch(API_URL)
 
             // ETAPE 5 : Envoyer dans le HTML les élements crées (appenchild)
 
-            //  container.appendChild(card);
-            // card.appendChild(title);
-            // card.appendChild(country);
-            // card.appendChild(ingredients);
-            // card.appendChild(liste);
-            // // card.appendChild(listeIngredients);
+            container.appendChild(card);
+            card.appendChild(title);
+            card.appendChild(paragraph);
+            card.appendChild(image);
         });
+
+
+
+
 
         // ETAPE 6 : Pour chaque élement du tableau "témoignages"créer une DIV 
         data.temoignages.forEach(testimony => {
-
+            let div = document.createElement("div")
             // - Créer un titre (h3) pour afficher le prénom 
             let tittleTestimony = document.createElement("h3");
             tittleTestimony.textContent = testimony.prenom
@@ -59,7 +82,13 @@ fetch(API_URL)
             let note = document.createElement("p");
             note.textContent = testimony.note
             console.log(note);
-            
+
             // ETAPE 7 : Envoyer dans le HTML les élements crées (appenchild)
+
+            container.appendChild(div);
+            div.appendChild(tittleTestimony);
+            div.appendChild(prestation);
+            div.appendChild(comment);
+            div.appendChild(note);
         });
     })
