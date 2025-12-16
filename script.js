@@ -4,16 +4,62 @@ const API_URL = `https://js-dynamic-portfolio-data-makerslab-emlyon-cdweb-8f8315
 fetch(API_URL)
     .then(response => response.json())
     .then(data => {
-        // ETAPE 3 : nom de l'entreprise (h1), slogan (H2) et les boutons
+        // Tester les données//
+        console.log(data.realisations);
+        console.log(data.temoignages);
+        // ETAPE 3 : Créer le nom de l'entreprise (h1), slogan (h2) et les boutons
+
+
+
         // ETAPE 4 : Pour chaque élement du tableau "réalisation"créer une DIV 
-        // - Créer un titre (h3) pour afficher le nom
-        let title = document.createElement("h3")
-        // - Créer un paragraphe (p) pour la description
-        // - Créer un élément image (img) pour afficher la photo
-        // ETAPE 5 : Envoyer dans le HTML les élements crées (appenchild)
+        
+        data.realisations.forEach(real => {
+            // - Créer un titre (h3) pour afficher le nom
+            let title = document.createElement("h3");
+            title.textContent = real.titre
+            console.log(title);
+            // - Créer un paragraphe (p) pour la description
+            let paragraph = document.createElement("p");
+            paragraph.textContent = real.description
+            console.log(paragraph);
+
+            // - Créer un élément image (img) pour afficher la photo
+            let image = document.createElement("img");
+            image.src = real["image-url"];
+            console.log(image);
+
+            // ETAPE 5 : Envoyer dans le HTML les élements crées (appenchild)
+
+            //  container.appendChild(card);
+            // card.appendChild(title);
+            // card.appendChild(country);
+            // card.appendChild(ingredients);
+            // card.appendChild(liste);
+            // // card.appendChild(listeIngredients);
+        });
+
         // ETAPE 6 : Pour chaque élement du tableau "témoignages"créer une DIV 
-        // - Créer un titre (h3) pour afficher le prénom 
-        // - Créer un titre (h4) pour afficher le type de prestation
-        // - Créer un paragraphe (p) pour les commentaires 
-        // ETAPE 7 : Envoyer dans le HTML les élements crées (appenchild)
+        data.temoignages.forEach(testimony => {
+
+            // - Créer un titre (h3) pour afficher le prénom 
+            let tittleTestimony = document.createElement("h3");
+            tittleTestimony.textContent = testimony.prenom
+            console.log(tittleTestimony);
+
+            // - Créer un titre (h4) pour afficher le type de prestation
+            let prestation = document.createElement("h4");
+            prestation.textContent = testimony.typePrestation
+            console.log(prestation);
+
+            // - Créer un paragraphe (p) pour les commentaires 
+            let comment = document.createElement("p");
+            comment.textContent = testimony.commentaire
+            console.log(comment);
+            // Créer un autre paragraphe (p) pour la note
+            let note = document.createElement("p");
+            note.textContent = testimony.note
+            console.log(note);
+            
+            // ETAPE 7 : Envoyer dans le HTML les élements crées (appenchild)
+        });
     })
