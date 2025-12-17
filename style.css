@@ -1,0 +1,48 @@
+*{
+    margin: 0px;
+}
+
+ody{
+    background-color: #F6F0EF;
+}
+img{
+    width: 300px;
+    display: flex;
+}
+nav{
+    color: #4C2F2A
+;
+    display: flex;
+    justify-content: space-between;
+    background-color: #F6F0EF;
+    color: #4C2F2A;
+    padding: 25px;
+    
+
+    li{
+        display: flex;
+        display: inline-block;
+    }
+    a{
+        text-decoration: none;
+        color: #4C2F2A;
+    }
+    ul{
+        display: flex;
+        gap: 100px;
+    }
+    #btn{
+        margin: 5px;
+        padding: 10px;
+        background-color: #F6F0EF;
+    }
+    h1{
+        font-size: 20px;
+    }
+}
+#hero{
+    background-color:#4C2F2A;
+}
+#accroche{
+    padding: 100px;
+}

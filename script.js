@@ -13,7 +13,7 @@ fetch(API_URL)
         logo.textContent = data.entreprise;
 
         let titre = document.createElement("h2");
-        titre.textContent = data.entreprise;
+        titre.textContent = data.titre;
         let slogan = document.createElement("p");
         slogan.textContent = data.propositionDeValeur;
         let boutton = document.createElement("button");
