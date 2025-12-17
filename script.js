@@ -14,10 +14,14 @@ fetch(API_URL)
 
         let titre = document.createElement("h2");
         titre.textContent = data.titre;
+
         let slogan = document.createElement("p");
         slogan.textContent = data.propositionDeValeur;
+        // slogan.classList.add("p");
+
         let boutton = document.createElement("button");
         boutton.textContent = data.texteBouton;
+        boutton.classList.add("button");
 
         let accroche = document.getElementById("accroche");
         accroche.appendChild(titre);
