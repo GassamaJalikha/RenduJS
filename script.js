@@ -34,6 +34,7 @@ fetch(API_URL)
         data.promessesClients.forEach(promess => {
             let promesses = document.createElement("p");
             promesses.textContent = promess
+             promesses.classList.add("border")
             let pdiv = document.createElement("div");
             pdiv.appendChild(promesses);
             console.log(promesses);
@@ -53,6 +54,7 @@ fetch(API_URL)
             let paragraph = document.createElement("p");
             paragraph.textContent = real.description
             console.log(paragraph);
+            // paragraph.classList.add("border")
 
             // - Créer un élément image (img) pour afficher la photo
             let image = document.createElement("img");
@@ -85,6 +87,7 @@ fetch(API_URL)
             // - Créer un paragraphe (p) pour les commentaires 
             let comment = document.createElement("p");
             comment.textContent = testimony.commentaire
+            comment.classList.add("border")
             console.log(comment);
             // Créer un autre paragraphe (p) pour la note
             let note = document.createElement("p");
