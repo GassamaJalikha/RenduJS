@@ -30,14 +30,20 @@ fetch(API_URL)
 
 
         // ETAPE 4 : Pour chaque élement du tableau "réalisation"créer une DIV 
+        let avantage = document.getElementById("container");
         data.promessesClients.forEach(promess => {
             let promesses = document.createElement("p");
             promesses.textContent = promess
+            let pdiv = document.createElement("div");
+            pdiv.appendChild(promesses);
             console.log(promesses);
-
+            // promesses.appendChild(promessesClients); // ligne à l'envers
+            avantage.appendChild(pdiv);
         });
 
+
         data.realisations.forEach(real => {
+            let containerReal = document.getElementById("real");
             let card = document.createElement("div");
             // - Créer un titre (h3) pour afficher le nom
             let title = document.createElement("h3");
@@ -55,16 +61,14 @@ fetch(API_URL)
 
             // ETAPE 5 : Envoyer dans le HTML les élements crées (appenchild)
 
-            container.appendChild(card);
+            card.appendChild(image);
             card.appendChild(title);
             card.appendChild(paragraph);
-            card.appendChild(image);
+            containerReal.appendChild(card); // let container n'existe pas (encore) 
         });
 
 
-
-
-
+        
         // ETAPE 6 : Pour chaque élement du tableau "témoignages"créer une DIV 
         data.temoignages.forEach(testimony => {
             let div = document.createElement("div")
@@ -72,12 +76,12 @@ fetch(API_URL)
             let tittleTestimony = document.createElement("h3");
             tittleTestimony.textContent = testimony.prenom
             console.log(tittleTestimony);
-
+            
             // - Créer un titre (h4) pour afficher le type de prestation
             let prestation = document.createElement("h4");
             prestation.textContent = testimony.typePrestation
             console.log(prestation);
-
+            
             // - Créer un paragraphe (p) pour les commentaires 
             let comment = document.createElement("p");
             comment.textContent = testimony.commentaire
@@ -86,10 +90,12 @@ fetch(API_URL)
             let note = document.createElement("p");
             note.textContent = testimony.note
             console.log(note);
-
+            
             // ETAPE 7 : Envoyer dans le HTML les élements crées (appenchild)
-
-            container.appendChild(div);
+            
+            let test = document.getElementById("testimony");
+            
+            test.appendChild(div);
             div.appendChild(tittleTestimony);
             div.appendChild(prestation);
             div.appendChild(comment);

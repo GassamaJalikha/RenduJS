@@ -56,16 +56,30 @@ nav {
 #accroche {
     padding: 100px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+
     font-size: 27px;
     flex-direction: column;
-    gap: 60px;
 
     p {
         color: #F6F0EF;
     }
-    .button{
+
+    .button {
         width: fit-content;
+        padding: 15px;
+        margin: 50px;
+        background-color: #F6F0EF;
+        color: #69423A;
     }
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
+
+footer{
+    background-color: #69423A;
+color: #F6F0EF;
 }
